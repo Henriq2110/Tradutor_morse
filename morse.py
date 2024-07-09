@@ -17,9 +17,9 @@ dicionario_morse = {
 }
 
 # Função para converter texto para código Morse
-def texto_morse(text):
+def texto_morse(texto):
     cod_morse = []
-    for char in text.upper():
+    for char in texto.upper():
         if char in dicionario_morse:
             cod_morse.append(dicionario_morse[char])
         elif char == ' ':
@@ -31,13 +31,13 @@ def texto_morse(text):
 # Função para converter código Morse para texto
 def morse_texto(cod_morse):
     cod_morse = cod_morse.split(' ')
-    text = []
+    texto = []
     for code in cod_morse:
         if code in dicionario_morse.values():
-            text.append(list(dicionario_morse.keys())[list(dicionario_morse.values()).index(code)])
+            texto.append(list(dicionario_morse.keys())[list(dicionario_morse.values()).index(code)])
         elif code == '':
-            text.append(' ')
-    return ''.join(text)
+            texto.append(' ')
+    return ''.join(texto)
 
 # Função principal para interação com o usuário
 def main():
@@ -50,13 +50,13 @@ def main():
         choice = input("Digite sua escolha (1/2/3): ")
         
         if choice == '1':
-            text = input("Digite o texto para converter em código Morse: ")
-            cod_morse = texto_morse(text)
+            texto = input("Digite o texto para converter em código Morse: ")
+            cod_morse = texto_morse(texto)
             print(f"O código Morse correspondente é: {cod_morse}")
         elif choice == '2':
             cod_morse = input("Digite o código Morse para converter em texto: ")
-            text = morse_texto(cod_morse)
-            print(f"O texto correspondente é: {text}")
+            texto = morse_texto(cod_morse)
+            print(f"O texto correspondente é: {texto}")
         elif choice == '3':
             print("Saindo...")
             break
